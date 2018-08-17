@@ -1,13 +1,12 @@
-﻿using System;
+﻿using CrNET.Types.Default;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Web;
 
-namespace CocNET.Methods
+namespace CrNET.Methods
 {
     public class UrlBuilder
     {
@@ -26,6 +25,24 @@ namespace CocNET.Methods
             }
             var builder = new UriBuilder(root) { Query = collection.ToString() };
             return builder.Uri;
+        }
+
+        public static string GetCallBySearchFilter(SearchFilter filter, string baseUrl)
+        {
+            NameValueCollection myCollection = new NameValueCollection();
+            Dictionary<string, string> myDictionary = new Dictionary<string, string>();
+            Type myType = filter.GetType();
+            IList<PropertyInfo> props = new List<PropertyInfo>(myType.GetProperties());
+
+            foreach (PropertyInfo prop in props)
+            {
+                object propValue = prop.GetValue(filter, null);
+                var value = (propValue == null) || (propValue.Equals(0)) ? null : propValue.ToString();
+
+                myCollection.Add(prop.Name.ToLower(), value);
+            }
+            var url = Request.GetCall(Request.Client.BaseUrl.AbsoluteUri, baseUrl);
+            return UrlBuilder.BuildUri(url, myCollection).Query;
         }
     }
 }

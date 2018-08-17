@@ -1,7 +1,7 @@
 ﻿using CrNET.Types.Cards;
 using System.Collections.Generic;
 
-namespace CocNET.Interfaces
+namespace CrNET.Interfaces
 {
     public interface ICrCoreCards
     {

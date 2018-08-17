@@ -57,6 +57,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClanTest.cs" />
     <Compile Include="CardTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

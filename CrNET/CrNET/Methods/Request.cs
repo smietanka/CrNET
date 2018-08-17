@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CrNET.Types.Default;
 using Newtonsoft.Json;
 using RestSharp;
-using System.Collections.Specialized;
-using CrNET.Types.Default;
 
 namespace CrNET.Methods
 {
@@ -44,6 +36,7 @@ namespace CrNET.Methods
         {
             var request = GetRequest(call+query);
             var response = Client.Execute(request);
+            ResponseError(response, true);
             return JsonConvert.DeserializeObject<T>(response.Content);
         }
 
@@ -55,7 +48,7 @@ namespace CrNET.Methods
             return JsonConvert.DeserializeObject<T>(response.Content);
         }
 
-        public string GetCall(params object[] values)
+        public static string GetCall(params object[] values)
         {
             return string.Join("/", values);
         }
@@ -67,7 +60,7 @@ namespace CrNET.Methods
                 var responseDeserialized = JsonConvert.DeserializeObject<BadRequest>(response.Content);
                 if (throwException)
                 {
-                    throw new System.Exception(string.Format("Response error. [Reason]: {0} [Message]: {1}", (int)response.StatusCode, responseDeserialized.Reason, responseDeserialized.Message));
+                    throw new System.Exception($"Response error. \n[Status]: {(int)response.StatusCode} \n[Reason]: {responseDeserialized.Reason} \n[Message]: {responseDeserialized.Message}");
                 }
                 return false;
             }

@@ -1,8 +1,8 @@
-﻿using System;
-using CocNET.Interfaces;
-using CocNET.Services;
+﻿using CrNET.Interfaces;
 using CrNET.Methods;
+using CrNET.Services;
 using Funq;
+using System;
 
 namespace CrNET
 {
@@ -34,9 +34,10 @@ namespace CrNET
             }
             Container = new Funq.Container();
 
-            Container.Register<Request>("Request", new Request(token));
+            Container.Register("Request", new Request(token));
 
             Container.Register<ICrCoreCards>(new CrCoreCards(Container.ResolveNamed<Request>("Request")));
+            Container.Register<ICrCoreClans>(new CrCoreClans(Container.ResolveNamed<Request>("Request")));
         }
     }
 }

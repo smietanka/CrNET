@@ -1,14 +1,14 @@
-﻿using CocNET.Interfaces;
+﻿using CrNET.Interfaces;
 using CrNET.Methods;
 using CrNET.Types.Cards;
 using System;
 using System.Collections.Generic;
 
-namespace CocNET.Services
+namespace CrNET.Services
 {
     public class CrCoreCards : ICrCoreCards
     {
-        private const string API_URL_CLANS = "cards";
+        private const string API_URL_CARDS = "cards";
         private Request Request;
 
         public CrCoreCards(Request requestClient)
@@ -21,7 +21,7 @@ namespace CocNET.Services
         /// <returns>List of cards</returns>
         public List<Card> GetCards()
         {
-            var call = Request.GetCall(API_URL_CLANS);
+            var call = Request.GetCall(API_URL_CARDS);
 
             var cards = Request.GetResponse<Cards>(call);
 
