@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrNET", "CrNET\CrNET.csproj", "{CB799D0D-46C0-41B4-A251-FE35C21A519B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrNET.Test", "CrNET.Test\CrNET.Test.csproj", "{EF0EBFC8-DA34-4E87-82FB-FEC0659C7C51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CB799D0D-46C0-41B4-A251-FE35C21A519B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB799D0D-46C0-41B4-A251-FE35C21A519B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB799D0D-46C0-41B4-A251-FE35C21A519B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF0EBFC8-DA34-4E87-82FB-FEC0659C7C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF0EBFC8-DA34-4E87-82FB-FEC0659C7C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF0EBFC8-DA34-4E87-82FB-FEC0659C7C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF0EBFC8-DA34-4E87-82FB-FEC0659C7C51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

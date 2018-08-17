@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrNET
+namespace CrNET.Types.Default
 {
-    public class Class1
+    public class IconUrls
     {
+        public string Medium { get; set; }
     }
 }
