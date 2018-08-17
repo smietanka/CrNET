@@ -58,6 +58,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CrCoreCards.cs" />
     <Compile Include="Types\Cards\Card.cs" />
+    <Compile Include="Types\Cards\Cards.cs" />
+    <Compile Include="Types\Default\BadRequest.cs" />
     <Compile Include="Types\Default\IconUrls.cs" />
   </ItemGroup>
   <ItemGroup>

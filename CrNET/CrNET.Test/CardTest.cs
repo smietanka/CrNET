@@ -7,8 +7,7 @@ namespace CrNET.Test
     [TestFixture]
     public class CardTest
     {
-        public const string CLAN_TAG = "#9UVJGPV0"; // Example clan Tag
-        private const string TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjU4NWEyYmVjLWZhMTEtNGM3Mi05YmQzLWU3ZWE5OWQ5NTM5YiIsImlhdCI6MTQ5NDM0NDA3NCwic3ViIjoiZGV2ZWxvcGVyLzhmY2VhNGY3LWE4NTctMDkyOS1hYTgyLTVkM2I1YThmOWRlNSIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjc4LjkuNzYuMTM3IiwiNTIuNDUuMTg1LjExNyIsIjUyLjU0LjMxLjExIiwiNTQuODcuMTQxLjI0NiIsIjU0Ljg3LjE4NS4zNSJdLCJ0eXBlIjoiY2xpZW50In1dfQ.6_fP6KKlJ-11eR8u47PQ85E0CATi1hMGwGOPUT3D-hL4QfaWkbP5chtVKJFMkSJjZmGA6-dlTPLn01iZGAoBxw"; //Example token
+        private const string TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImQ2MjZmNzcwLTI0M2UtNDRlOS1iYWI4LTc5YTIzYmE5MzE5OCIsImlhdCI6MTUzNDU0MDMzNiwic3ViIjoiZGV2ZWxvcGVyLzA5NjJjZjFjLTJkMzQtMzk0MS0wYjM1LTI1NjNjMGY2MjY0MiIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI5NS4xNjAuMTU2LjQ0Il0sInR5cGUiOiJjbGllbnQifV19.NPVginb8SpAJDsFR9IKANgJYTnRtD-9egbZQjxQ8-GZ11ATfMgUpd239ARlVGfNYK05l-WdYKMTrlsS7reAjPg";
         private ICrCoreCards CardsCore;
 
         [OneTimeSetUp]
@@ -17,7 +16,7 @@ namespace CrNET.Test
             CardsCore = CrCore.Instance(TOKEN).Container.Resolve<ICrCoreCards>();
         }
 
-        [Test, Category("CardTest")]
+        [Test]
         public void GetCards()
         {
             var cards = CardsCore.GetCards();

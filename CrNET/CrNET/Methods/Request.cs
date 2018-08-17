@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Collections.Specialized;
+using CrNET.Types.Default;
 
 namespace CrNET.Methods
 {
@@ -50,11 +51,27 @@ namespace CrNET.Methods
         {
             var request = GetRequest(call);
             var response = Client.Execute(request);
+            ResponseError(response, true);
             return JsonConvert.DeserializeObject<T>(response.Content);
         }
+
         public string GetCall(params object[] values)
         {
             return string.Join("/", values);
+        }
+
+        public static bool ResponseError(IRestResponse response, bool throwException = false)
+        {
+            if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
+            {
+                var responseDeserialized = JsonConvert.DeserializeObject<BadRequest>(response.Content);
+                if (throwException)
+                {
+                    throw new System.Exception(string.Format("Response error. [Reason]: {0} [Message]: {1}", (int)response.StatusCode, responseDeserialized.Reason, responseDeserialized.Message));
+                }
+                return false;
+            }
+            return true;
         }
     }
 }

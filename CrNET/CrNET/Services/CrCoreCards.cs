@@ -1,12 +1,8 @@
 ﻿using CocNET.Interfaces;
-using CocNET.Methods;
 using CrNET.Methods;
 using CrNET.Types.Cards;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Reflection;
-using System.Web;
 
 namespace CocNET.Services
 {
@@ -27,9 +23,9 @@ namespace CocNET.Services
         {
             var call = Request.GetCall(API_URL_CLANS);
 
-            var myClan = Request.GetResponse<List<Card>>(call);
+            var cards = Request.GetResponse<Cards>(call);
 
-            return myClan;
+            return cards.CardList;
         }
     }
 }
