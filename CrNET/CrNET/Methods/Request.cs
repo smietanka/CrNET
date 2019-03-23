@@ -48,6 +48,11 @@ namespace CrNET.Methods
             return JsonConvert.DeserializeObject<T>(response.Content);
         }
 
+        /// <summary>
+        /// Join params by slash
+        /// </summary>
+        /// <param name="values"></param>
+        /// <returns></returns>
         public static string GetCall(params object[] values)
         {
             return string.Join("/", values);
